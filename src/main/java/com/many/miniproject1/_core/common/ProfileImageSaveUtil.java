@@ -17,7 +17,7 @@ public class ProfileImageSaveUtil {
         byte[] decodedBytes = Base64.getDecoder().decode(profile);
         String profilename= UUID.nameUUIDFromBytes(decodedBytes).randomUUID() + "_" + profileName;
         try {
-            Path path = Path.of("./images/" + profilename);
+            Path path = Path.of("file:///images/" + profilename);
             Files.write(path, decodedBytes); // 바이트 배열을 파일로 저장
         } catch (IOException e) {
             e.printStackTrace();
